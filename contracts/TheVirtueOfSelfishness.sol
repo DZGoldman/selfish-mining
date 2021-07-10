@@ -5,7 +5,7 @@ import "hardhat/console.sol";
 
 
 contract TheVirtueOfSelfishness {
-  
+
   mapping(uint => address) blockNumberToCoinbase;
 
   fallback() external payable {}
@@ -23,8 +23,8 @@ contract TheVirtueOfSelfishness {
       blocksMined ++;
       blockNumber--;
     }
-    require(blocksMined > 1, "NOT_SELFISH_ENOUGH");
-    block.coinbase.transfer( (address(this).balance * blocksMined)/(blocksMined + 1)  );
+    require(blocksMined > 40, "NOT_SELFISH_ENOUGH");
+    block.coinbase.transfer( (address(this).balance / 2 ));
 
   }
 
